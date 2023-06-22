@@ -1,4 +1,4 @@
-FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm32v7-3.14
+FROM ghcr.io/linuxserver/baseimage-alpine-nginx:arm32v7-3.16
 
 # set version label
 ARG BUILD_DATE
@@ -18,6 +18,7 @@ apk add --no-cache --virtual=runtime-dependencies \
 WORKDIR /app
 COPY css/ /app/themepark/css/
 COPY resources/ /app/themepark/resources/
+COPY docker-mods/ /app/themepark/docker-mods/
 COPY themes.py index.html CNAME /app/themepark/
 
 COPY docker/root/ /
